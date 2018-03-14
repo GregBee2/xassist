@@ -1,3 +1,5 @@
+import json from 'rollup-plugin-json';
+
 const definition = require("./package.json");
 const dependencies = Object.keys(definition.dependencies || {});
 var endOfLine = require('os').EOL;
