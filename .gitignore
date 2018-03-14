@@ -1,0 +1,5 @@
+/node_modules/*
+/**.stackdump
+*.stackdump
+node_modules
+submodules

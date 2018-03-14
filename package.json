@@ -1,0 +1,50 @@
+{
+	"name": "@VisX/XAssist",
+	"version": "0.6.15",
+	"description": "Basic helper functions without any external dependecies",
+	"keywords": [
+		"xAssists",
+		"utilities",
+		"helper"
+	],
+	"bugs": {
+		"email": "gregory.beirens@gmail.com"
+	},
+	"private": true,
+	"license": "GPL-3.0-only",
+	"author": {
+		"name": "Gregory Beirens",
+		"email": "gregory.beirens@gmail.com"
+	},
+	"main": "dist/x-assistance.js",
+	"scripts": {
+		"pretest": "rimraf dist  && rollup -c",
+		"test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js && eslint index.js src",
+		"posttest": "npm run uglify",
+		"build": "npm run test && git commit -am ",
+		"prepublishOnly": "npm version patch && npm run build  -- \"publish latest version\"",
+		"postpublish": "git push && git push --tags",
+		"uglify": "uglifyjs  --comments /^@preserve/ dist/xAssist.js -c -m -o dist/xAssist.min.js"
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"devDependencies": {
+		"rimraf": "^2.6.2",
+		"rollup": "^0.56.3",
+		"tape": "^4.9.0"
+	},
+	"dependencies": {
+		"@xassist/xassist-array": "0.0.7",
+		"@xassist/xassist-csv": "^1.0.3",
+		"@xassist/xassist-eventdispatcher": "0.0.10",
+		"@xassist/xassist-main": "^0.1.14",
+		"@xassist/xassist-object": "^0.1.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/GregBee2/xassist.git"
+	},
+	"homepage": "https://github.com/GregBee2/xassist#readme"
+}
