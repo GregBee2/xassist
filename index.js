@@ -1,4 +1,4 @@
-import {version as v} from "../package.json";
+import {version as v} from "./package.json";
 export function version(){return v;}
 export * from "@xassist/xassist-main";
 export * from "@xassist/xassist-array";
