@@ -30,7 +30,7 @@ for (let i=0,len=args.length;i<len;i++){
 export default {
 	input: './index.js',
 	external: dependencies,
-	plugins:[],
+	plugins:[json()],
 	output:{
 		extend: true,
 		file: definition.main,
