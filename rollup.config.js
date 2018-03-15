@@ -1,4 +1,7 @@
 import json from 'rollup-plugin-json';
+import resolve from "rollup-plugin-node-resolve";
+
+
 
 const definition = require("./package.json");
 const dependencies = Object.keys(definition.dependencies || {});
@@ -29,13 +32,11 @@ for (let i=0,len=args.length;i<len;i++){
 
 export default {
 	input: './index.js',
-	external: dependencies,
-	plugins:[json()],
+	plugins:[resolve(),json()],
 	output:{
 		extend: true,
 		file: definition.main,
 		format: _format,
-		globals: dependencies.reduce((p, v) => (p[v] = "xa", p), {}),
 		name:'xa',
 		banner:bannerText
 	}	

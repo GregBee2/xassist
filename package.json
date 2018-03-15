@@ -16,7 +16,9 @@
 		"name": "Gregory Beirens",
 		"email": "gregory.beirens@gmail.com"
 	},
-	"main": "dist/x-assistance.js",
+	"main": "dist/xAssist.js",
+	"module": "index",
+	"jsnext:main": "index",
 	"scripts": {
 		"pretest": "rimraf dist  && rollup -c",
 		"test": "istanbul cover node_modules/tape/bin/tape test/**/*-test.js && eslint index.js src",
@@ -31,17 +33,19 @@
 		"src"
 	],
 	"devDependencies": {
+		"jsdom": "^11.6.2",
 		"rimraf": "^2.6.2",
-		"rollup": "^0.56.3",
+		"rollup": "^0.56.5",
 		"rollup-plugin-json": "^2.3.0",
+		"rollup-plugin-node-resolve": "^3.2.0",
 		"tape": "^4.9.0"
 	},
 	"dependencies": {
-		"@xassist/xassist-array": "0.0.7",
-		"@xassist/xassist-csv": "^1.0.3",
-		"@xassist/xassist-eventdispatcher": "0.0.10",
-		"@xassist/xassist-main": "^0.1.14",
-		"@xassist/xassist-object": "^0.1.3"
+		"@xassist/xassist-array": "0.0.9",
+		"@xassist/xassist-csv": "^1.0.7",
+		"@xassist/xassist-eventdispatcher": "0.0.12",
+		"@xassist/xassist-main": "^0.1.17",
+		"@xassist/xassist-object": "^0.1.6"
 	},
 	"repository": {
 		"type": "git",
