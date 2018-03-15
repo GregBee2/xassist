@@ -10,8 +10,7 @@
 	"bugs": {
 		"email": "gregory.beirens@gmail.com"
 	},
-	"private": true,
-	"license": "GPL-3.0-only",
+	"license": "GPL-3.0",
 	"author": {
 		"name": "Gregory Beirens",
 		"email": "gregory.beirens@gmail.com"
