@@ -3,3 +3,4 @@
 *.stackdump
 node_modules
 submodules
+helpData
