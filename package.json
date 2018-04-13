@@ -44,7 +44,7 @@
 	"dependencies": {
 		"@xassist/xassist-array": "0.0.9",
 		"@xassist/xassist-csv": "^1.0.7",
-		"@xassist/xassist-eventdispatcher": "0.0.12",
+		"@xassist/xassist-eventdispatcher": "^1.0.1",
 		"@xassist/xassist-main": "^0.1.18",
 		"@xassist/xassist-object": "^0.1.7"
 	},

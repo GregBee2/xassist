@@ -2,7 +2,7 @@
 * @preserve
 * https://github.com/GregBee2/xassist#readme Version 1.0.2.
 *  Copyright 2018 Gregory Beirens.
-*  Created on Fri, 13 Apr 2018 10:38:33 GMT.
+*  Created on Fri, 13 Apr 2018 10:55:01 GMT.
 */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
@@ -121,18 +121,18 @@ function array(arr){
 	};
 }
 
-function EventDispatcher(me){
+function EventDispatcher(){
 	if ( !(this instanceof EventDispatcher) ){
 		return new EventDispatcher();
 	}
-	this._parent=me;
+	//this._parent=me;
 	this._events={};
 }
 
 EventDispatcher.prototype.registerEvent=function(eventName,defaultThis){
 	if(!this.hasEvent(eventName)){
 		this._events[eventName]={
-			thisArg:defaultThis||this._parent,
+			thisArg:defaultThis||this,
 			listeners:[]
 		};
 	}
@@ -192,15 +192,86 @@ EventDispatcher.prototype.off=function(eventName,callBack){
 	}
 };
 
+function EventDispatcher$1(me){
+	if ( !(this instanceof EventDispatcher$1) ){
+		return new EventDispatcher$1();
+	}
+	this._parent=me;
+	this._events={};
+}
+
+EventDispatcher$1.prototype.registerEvent=function(eventName,defaultThis){
+	if(!this.hasEvent(eventName)){
+		this._events[eventName]={
+			thisArg:defaultThis||this._parent,
+			listeners:[]
+		};
+	}
+	else{
+		throw new ReferenceError("event was allready registered")
+	}
+};
+EventDispatcher$1.prototype.hasEvent=function(eventName){
+	return this._events.hasOwnProperty(eventName);
+};
+EventDispatcher$1.prototype.on=function(eventName,callBack,thisArg){
+	var listener={
+		fn:callBack,
+	};
+	if(thisArg && thisArg!==this._events[eventName].thisArg){
+		listener.thisArg=thisArg;
+	}
+	if(this.hasEvent(eventName)){
+		this._events[eventName].listeners.push(listener);
+	}
+};
+EventDispatcher$1.prototype.once=function(eventName,callBack,thisArg){
+	var listener={
+		fn:callBack,
+		once:true
+	};
+	if(thisArg && thisArg!==this._events[eventName].thisArg){
+		listener.thisArg=thisArg;
+	}
+	if(this.hasEvent(eventName)){
+		this._events[eventName].listeners.push(listener);
+	}
+};
+EventDispatcher$1.prototype.fire=function(eventName/*,args*/){
+	var defaultThis;
+	var args=(Array.prototype.slice.call(arguments,1));
+	if(this.hasEvent(eventName)){
+		defaultThis=this._events[eventName].thisArg;
+		for (var index = 0,l=this._events[eventName].listeners.length; index <l; index += 1) {
+            this._events[eventName].listeners[index].fn.apply(
+				this._events[eventName].listeners[index].thisArg||defaultThis,
+				args
+			);
+        }
+		this._events[eventName].listeners=this._events[eventName].listeners.filter(function(v){
+			return !v.once;
+		});
+	}
+	
+};
+
+EventDispatcher$1.prototype.off=function(eventName,callBack){
+	if(this.hasEvent(eventName)){
+		this._events[eventName].listeners=this._events[eventName].listeners.filter(function(v){
+			return v.fn!==callBack;
+		});
+	}
+};
+
 function object (obj) {
 	return new XaObject(obj);
 }
 function XaObject(obj) {
 	this.object = obj;
-	EventDispatcher.call(this, this); //containerElm=modal
+	EventDispatcher$1.call(this, this); //containerElm=modal
 	this.currentValues = {};
 }
-XaObject.prototype = Object.create(EventDispatcher.prototype); // Here's where the inheritance occurs
+XaObject.prototype = Object.create(EventDispatcher$1.prototype); // Here's where the inheritance occurs
 XaObject.prototype.constructor = XaObject;
 function _getType(value) {
 	return typeof value;
@@ -229,7 +300,7 @@ XaObject.prototype.onChange = function (key, fn, thisArg) {
 		this.currentValues[key] = this.object[key];
 		newWatch = true;
 	}
-	EventDispatcher.prototype.on.call(this, "changeKey" + key, fn, thisArg);
+	EventDispatcher$1.prototype.on.call(this, "changeKey" + key, fn, thisArg);
 	if (newWatch) {
 		Object.defineProperty(this.object, key, {
 			set: function (value) {
