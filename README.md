@@ -49,6 +49,17 @@ xa.version()
   - [id()](https://github.com/GregBee2/xassist-main#id)
   - [ready()](https://github.com/GregBee2/xassist-main#ready)
   - [template()](https://github.com/GregBee2/xassist-main#template)
+- [**xassist-dom**](https://github.com/GregBee2/xassist-dom)
+  - [dom()](https://github.com/GregBee2/xassist-dom#dom)
+  - [dom().addClass()](https://github.com/GregBee2/xassist-dom#domaddclass)
+  - [dom().removeClass()](https://github.com/GregBee2/xassist-dom#domremoveclass)
+  - [dom().hasClass()](https://github.com/GregBee2/xassist-dom#domhasclass)
+  - [dom().replaceClass()](https://github.com/GregBee2/xassist-dom#domreplaceclass)
+  - [dom().toggleClass()](https://github.com/GregBee2/xassist-dom#domtoggleclass)
+  - [dom().attr()](https://github.com/GregBee2/xassist-dom#domattr)
+  - [dom().parents()](https://github.com/GregBee2/xassist-dom#domparents)
+  - [dom().isVisible()](https://github.com/GregBee2/xassist-dom#domisvisible)
+  - [dom().getDimensions()](https://github.com/GregBee2/xassist-dom#domgetdimensions)
 ## Dependencies
 - [@xassist/xassist-array](https://github.com/GregBee2/xassist-array#readme): helper functions for javascript arrays
 - [@xassist/xassist-csv](https://github.com/GregBee2/xassist-csv#readme): load csv files from remote and create csv files

@@ -2,7 +2,7 @@
 * @preserve
 * https://github.com/GregBee2/xassist#readme Version 1.0.1.
 *  Copyright 2018 Gregory Beirens.
-*  Created on Tue, 20 Mar 2018 11:54:45 GMT.
+*  Created on Fri, 13 Apr 2018 10:38:13 GMT.
 */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
@@ -16,7 +16,10 @@ var idSeed=Math.round(Math.random()*(1000000)),
 	DOMContentLoadedEvent,
 	readyCallBacks=[],
 	isReady=false;
-document.addEventListener( "DOMContentLoaded", readyHandler,{once:true});
+if(typeof document !== "undefined"){
+	document.addEventListener( "DOMContentLoaded", readyHandler,{once:true});
+}
+
 function readyHandler(){
 	//save event information
 	DOMContentLoadedEvent=arguments[0];

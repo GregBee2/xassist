@@ -34,19 +34,19 @@
 	],
 	"devDependencies": {
 		"csv2readme": "^1.1.1",
-		"jsdom": "^11.6.2",
+		"jsdom": "^11.7.0",
 		"rimraf": "^2.6.2",
 		"rollup": "^0.56.5",
 		"rollup-plugin-json": "^2.3.0",
-		"rollup-plugin-node-resolve": "^3.2.0",
+		"rollup-plugin-node-resolve": "^3.3.0",
 		"tape": "^4.9.0"
 	},
 	"dependencies": {
 		"@xassist/xassist-array": "0.0.9",
 		"@xassist/xassist-csv": "^1.0.7",
 		"@xassist/xassist-eventdispatcher": "0.0.12",
-		"@xassist/xassist-main": "^0.1.17",
-		"@xassist/xassist-object": "^0.1.6"
+		"@xassist/xassist-main": "^0.1.18",
+		"@xassist/xassist-object": "^0.1.7"
 	},
 	"repository": {
 		"type": "git",
