@@ -1,8 +1,8 @@
 /**
 * @preserve
-* https://github.com/GregBee2/xassist#readme Version 1.0.1.
+* https://github.com/GregBee2/xassist#readme Version 1.0.2.
 *  Copyright 2018 Gregory Beirens.
-*  Created on Fri, 13 Apr 2018 10:38:13 GMT.
+*  Created on Fri, 13 Apr 2018 10:38:33 GMT.
 */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
@@ -10,7 +10,7 @@
 	(factory((global.xa = global.xa || {})));
 }(this, (function (exports) { 'use strict';
 
-var version = "1.0.1";
+var version = "1.0.2";
 
 var idSeed=Math.round(Math.random()*(1000000)),
 	DOMContentLoadedEvent,
