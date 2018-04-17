@@ -2,6 +2,7 @@ var jsdom = require("jsdom");
 var dom=new jsdom.JSDOM("<!DOCTYPE html><h1 id='one'></h1>")
 global.window=dom.window;
 global.document =global.window.document;
+XMLHttpRequest=global.window.XMLHttpRequest;
 var definition = require("../package.json");
 var { xa }=require("../"+definition.main);
 var tape=require("tape");

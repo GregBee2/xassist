@@ -34,7 +34,7 @@
 	],
 	"devDependencies": {
 		"csv2readme": "^1.1.1",
-		"jsdom": "^11.7.0",
+		"jsdom": "^11.8.0",
 		"rimraf": "^2.6.2",
 		"rollup": "^0.56.5",
 		"rollup-plugin-json": "^2.3.0",
@@ -42,15 +42,15 @@
 		"tape": "^4.9.0"
 	},
 	"dependencies": {
-		"@xassist/xassist-aggregator": "^1.0.1",
-		"@xassist/xassist-ajax": "^1.0.1",
-		"@xassist/xassist-array": "0.0.9",
-		"@xassist/xassist-csv": "^1.0.7",
-		"@xassist/xassist-date": "^1.2.1",
-		"@xassist/xassist-dom": "^1.0.2",
-		"@xassist/xassist-eventdispatcher": "^1.0.1",
-		"@xassist/xassist-main": "^0.1.18",
-		"@xassist/xassist-object": "^0.1.7"
+		"@xassist/xassist-aggregator": "1",
+		"@xassist/xassist-ajax": "^1.0.2",
+		"@xassist/xassist-array": "^1.0.2",
+		"@xassist/xassist-csv": "^1.0.8",
+		"@xassist/xassist-date": "^1.2.2",
+		"@xassist/xassist-dom": "1",
+		"@xassist/xassist-eventdispatcher": "^1.0.2",
+		"@xassist/xassist-main": "1",
+		"@xassist/xassist-object": "1"
 	},
 	"repository": {
 		"type": "git",
